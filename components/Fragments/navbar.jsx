@@ -7,9 +7,9 @@ import RegisterModal from "../Fragments/registerModal";
 function navbar() {
   const [isLogin, setIsLogin] = useState(false);
   return (
-    <div className="navbar bg-base-100">
+    <div className="navbar bg-slate-200 rounded-xl">
       <div className="flex-1">
-        <a className="btn btn-ghost normal-case text-xl">B-Commerce</a>
+        <a className="btn btn-ghost normal-case text-xl text-black">B-Commerce</a>
       </div>
       <div className="flex-none">
         {isLogin ? (
@@ -19,6 +19,7 @@ function navbar() {
           </>
         ) : (
           <div className="flex gap-5">
+            <Cart/>
             <LoginModal />
             <RegisterModal />
           </div>
