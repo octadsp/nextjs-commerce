@@ -1,30 +1,82 @@
-import React from 'react'
-import Badge from './badge'
-import Cart from './cart'
+import React from "react";
+import Button from "../Button/index";
+import Badge from "./badge";
 
-export default function index() {
-    return (
-        <div className="dropdown dropdown-end">
-        <label tabIndex={0} className="btn btn-ghost btn-circle">
-          <div className="indicator">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              className="h-5 w-5"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"
-              />
-            </svg>
-            <Badge />
-          </div>
-        </label>
-        <Cart />
+const carts = [
+  {
+    no: "1",
+    title: "Laptop ROG",
+    price: 20000,
+  },
+  {
+    no: "2",
+    title: "Laptop Sultan",
+    price: 100000,
+  },
+  {
+    no: "3",
+    title: "Laptop ASUS",
+    price: 50000,
+  },
+  {
+    no: "4",
+    title: "Laptop ASUS LENOVO MANTAP",
+    price: 50000,
+  },
+];
+
+function cartModal() {
+  const handleButtonClick = () => {
+    if (typeof window.my_modal_cart.showModal === "function") {
+      window.my_modal_cart.showModal();
+    }
+  };
+
+  const totalPrice = carts.reduce((total, cart) => total + cart.price, 0);
+
+  return (
+    <>
+      <div className="flex">
+        <Button handleOnClick={handleButtonClick} name={"Cart"} />
+        <Badge />
       </div>
-    )
+      <div>
+        <dialog id="my_modal_cart" className="modal">
+          <form method="dialog" className="modal-box w-96 bg-slate-50">
+            <h3 className="font-bold text-3xl text-black">My Cart</h3>
+            <div className="flex flex-col gap-4 mt-5">
+              <div className="card-body bg-slate-300 rounded-2xl">
+                {carts?.map((cart, index) => (
+                  <span className="font-bold text-left text-lg text-black flex gap-3">
+                    <span>{cart.no}.</span>
+                    <div className="flex justify-between w-full">
+                      <span className="text-left">
+                        {cart.title.length > 15
+                          ? `${cart.title.substring(0, 15)}...`
+                          : cart.title}
+                      </span>
+                      <span>{cart.price}</span>
+                    </div>
+                  </span>
+                ))}
+                <hr />
+                <span className="text-info flex justify-between text-lg font-bold">
+                  Subtotal:
+                  <span>{totalPrice} </span>
+                </span>
+                <div className="card-actions flex justify-center mt-5">
+                  <Button type={"btn"} name="Check Out" color={"green-500"} />
+                </div>
+              </div>
+            </div>
+          </form>
+          <form method="dialog" className="modal-backdrop">
+            <button>close</button>
+          </form>
+        </dialog>
+      </div>
+    </>
+  );
 }
+
+export default cartModal;

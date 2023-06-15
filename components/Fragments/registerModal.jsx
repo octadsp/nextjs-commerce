@@ -11,7 +11,7 @@ function registerModal() {
       };
   return (
     <>
-      <Button color={"slate-50"} handleOnClick={handleButtonClick} name={"Register"} />
+      <Button type={"btn"} color={"slate-50"} handleOnClick={handleButtonClick} name={"Register"} />
       <dialog id="my_modal_register" className="modal">
         <form method="dialog" className="modal-box w-96 bg-slate-50">
           <h3 className="font-bold text-3xl text-black">Register</h3>
@@ -22,7 +22,7 @@ function registerModal() {
             <Select placeholder={"Role"} />
           </div>
           <div className="flex justify-center mt-5">
-            <Button name="Register" color={"green-500"} />
+            <Button type={"btn"} name="Register" color={"green-500"} />
           </div>
         </form>
         <form method="dialog" className="modal-backdrop">

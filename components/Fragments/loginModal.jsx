@@ -10,7 +10,7 @@ function loginModal() {
       };
   return (
     <>
-      <Button color={"slate-50"} handleOnClick={handleButtonClick} name={"Login"} />
+      <Button type={"btn"} color={"slate-50"} handleOnClick={handleButtonClick} name={"Login"} />
       <dialog id="my_modal_login" className="modal">
         <form method="dialog" className="modal-box w-96 bg-slate-50">
           <h3 className="font-bold text-3xl text-black">Login</h3>
@@ -19,7 +19,7 @@ function loginModal() {
             <Input placeholder={"Password"} type={"password"}/>
           </div>
           <div className="flex justify-center mt-5">
-            <Button name="Login" color={"green-500"} />
+            <Button type={"btn"} name="Login" color={"green-500"} />
           </div>
         </form>
         <form method="dialog" className="modal-backdrop">
