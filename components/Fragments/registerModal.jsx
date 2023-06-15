@@ -16,9 +16,9 @@ function registerModal() {
         <form method="dialog" className="modal-box w-96 bg-slate-50">
           <h3 className="font-bold text-3xl text-black">Register</h3>
           <div className="flex flex-col gap-4 mt-5">
-            <Input placeholder={"Email"} type={"text"}/>
-            <Input placeholder={"Password"} type={"password"}/>
-            <Input placeholder={"Name"} type={"text"}/>
+            <Input placeholder={"Email"} type={"text"} typeClass={"input"}/>
+            <Input placeholder={"Password"} type={"password"} typeClass={"input"}/>
+            <Input placeholder={"Name"} type={"text"} typeClass={"input"}/>
             <Select placeholder={"Role"} />
           </div>
           <div className="flex justify-center mt-5">

@@ -10,7 +10,7 @@ export default function Home() {
       </nav>
 
       <section>
-        <Search/>
+        <Search />
         <div className="flex flex-wrap gap-10 justify-center mt-10">
           <Card />
         </div>
