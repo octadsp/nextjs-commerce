@@ -1,9 +1,9 @@
 import React from 'react'
 
-export default function badge() {
+export default function badge(props) {
   return (
     <span className="badge badge-sm indicator-item font-bold bg-white text-black">
-        8
+        {props.totalItems}
     </span>
   )
 }
