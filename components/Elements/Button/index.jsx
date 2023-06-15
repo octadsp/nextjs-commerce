@@ -1,14 +1,13 @@
 import React from 'react'
 
 function index(props) {
-    const handleButtonClick = () => {
-        if (typeof window[props.id]?.showModal === 'function') {
-          window[props.id].showModal();
-        }
-      };
+    const className = `btn bg-${props.color} hover:bg-${props.hover} text-black font-bold`
 
   return (
-    <button className="font-bold" onClick={handleButtonClick}>
+    <button 
+        className={className} 
+        onClick={props.handleOnClick}
+    >
         {props.name}
     </button>
   )

@@ -1,25 +1,28 @@
 import React from "react";
 import Button from "../Elements/Button/index";
 import Input from "../Elements/Input/index";
+import Select from "../Elements/Select/index";
 
-function loginModal() {
+function registerModal() {
     const handleButtonClick = () => {
-        if (typeof window.my_modal_login.showModal === 'function') {
-          window.my_modal_login.showModal();
+        if (typeof window.my_modal_register.showModal === 'function') {
+          window.my_modal_register.showModal();
         }
       };
   return (
     <>
-      <Button color={"slate-50"} handleOnClick={handleButtonClick} name={"Login"} />
-      <dialog id="my_modal_login" className="modal">
+      <Button color={"slate-50"} handleOnClick={handleButtonClick} name={"Register"} />
+      <dialog id="my_modal_register" className="modal">
         <form method="dialog" className="modal-box w-96 bg-slate-50">
-          <h3 className="font-bold text-3xl text-black">Login</h3>
+          <h3 className="font-bold text-3xl text-black">Register</h3>
           <div className="flex flex-col gap-4 mt-5">
             <Input placeholder={"Email"} type={"text"}/>
             <Input placeholder={"Password"} type={"password"}/>
+            <Input placeholder={"Name"} type={"text"}/>
+            <Select placeholder={"Role"} />
           </div>
           <div className="flex justify-center mt-5">
-            <Button name="Login" color={"green-500"} />
+            <Button name="Register" color={"green-500"} />
           </div>
         </form>
         <form method="dialog" className="modal-backdrop">
@@ -30,4 +33,4 @@ function loginModal() {
   );
 }
 
-export default loginModal;
+export default registerModal;
