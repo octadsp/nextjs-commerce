@@ -33,12 +33,14 @@ function cartModal() {
   };
 
   const totalPrice = carts.reduce((total, cart) => total + cart.price, 0);
+  const totalItems = carts.length;
+  console.log(totalItems);
 
   return (
     <>
       <div className="flex">
         <Button handleOnClick={handleButtonClick} name={"Cart"} />
-        <Badge />
+        <Badge totalItems={totalItems}/>
       </div>
       <div>
         <dialog id="my_modal_cart" className="modal">
