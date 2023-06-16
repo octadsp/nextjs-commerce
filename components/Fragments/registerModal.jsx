@@ -19,6 +19,13 @@ function registerModal() {
   
     const { email, password, name, role } = getData;
 
+    const handleOnChange = (e) => {
+      setData({
+        ...getData,
+        [e.target.name]: e.target.value,
+      });
+    };
+
     const handleOnSubmit = useMutation(async (e) => {
         try {
             e.preventDefault();
@@ -38,14 +45,7 @@ function registerModal() {
             setMessage(<ErrorAlert message={"Register Failed!"} />)
             console.log("Register failed :" , error);
         }
-    });
-
-    const handleOnChange = (e) => {
-        setData({
-          ...getData,
-          [e.target.name]: e.target.value,
-        });
-      };
+    });  
 
     const handleButtonClick = () => {
         if (typeof window.my_modal_register.showModal === 'function') {
