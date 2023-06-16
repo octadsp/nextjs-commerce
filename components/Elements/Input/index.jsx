@@ -6,6 +6,9 @@ export default function index(props) {
     <input 
         type={props.type} 
         placeholder={props.placeholder} 
+        name={props.name}
+        onChange={props.onChange}
+        value={props.value}
         className={className}
     />
   )
